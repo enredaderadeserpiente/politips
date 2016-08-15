@@ -13,15 +13,15 @@ const Navbar = React.createClass({
       <RBNavbar inverse>
         <RBNavbar.Header>
           <RBNavbar.Brand>
-            <Link to={'/'}>Politips</Link>
+            <Link to='/'>Politips</Link>
           </RBNavbar.Brand>
         </RBNavbar.Header>
         <RBNavbar.Collapse>
           <Nav>
-            <LinkContainer to={'/about/'}>
+            <LinkContainer to='/about/'>
               <NavItem>About</NavItem>
             </LinkContainer>
-            <LinkContainer to={'/legislators/'}>
+            <LinkContainer to='/legislators/'>
               <NavItem>Legislators</NavItem>
             </LinkContainer>
           </Nav>
@@ -30,7 +30,7 @@ const Navbar = React.createClass({
             { this.props.user ? (
               <MenuItem onClick={this.props.logout}>Logout</MenuItem>
             ) : (
-              <LinkContainer to={'/login/'}>
+              <LinkContainer to='/login/'>
                 <MenuItem>Login</MenuItem>
               </LinkContainer>
             ) }
@@ -54,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps, undefined, {pure: false})(Navbar);

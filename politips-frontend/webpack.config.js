@@ -65,7 +65,7 @@ config = {
       $: "jquery",
       "jQuery": "jquery"
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    // new webpack.optimize.UglifyJsPlugin(),
   ],
   devServer: {
     historyApiFallback: true,
