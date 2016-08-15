@@ -15,15 +15,14 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/*', function (req, res) {
-  const history = createMemoryHistory();
-  history.push(req.originalUrl);
-
+  const history = createMemoryHistory(req.originalUrl);
   const content = ReactDOM.renderToString(
     <Provider store={store}>
       <Router history={history}>
         {routes}
       </Router>
-    </Provider>);
+    </Provider>
+  );
   res.render('../src/index.jade', {content: content});
 });
 

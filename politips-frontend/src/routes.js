@@ -1,7 +1,6 @@
 import React from 'react'
-import { Router, Route, Link, browserHistory, Redirect} from 'react-router'
+import { Route } from 'react-router'
 
-import { Provider } from 'react-redux'
 
 import App from './components/App';
 import Login from './components/Login';
