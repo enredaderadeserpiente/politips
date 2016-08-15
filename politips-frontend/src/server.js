@@ -9,8 +9,21 @@ import { createMemoryHistory } from 'react-router'
 import { createLocation, createHistory } from 'history';
 import ReactDOM from 'react-dom/server';
 
+import webpack from 'webpack';
+import webpackConfig from '../webpack.config.js';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
 const app = express();
+
+var compiler = webpack(webpackConfig);
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: webpackConfig.output.publicPath,
+  stats: {
+    colors: true
+  },
+}));
+app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static('public'));
 

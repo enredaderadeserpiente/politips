@@ -1,7 +1,3 @@
-// import 'jquery';
-// import '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap';
-
-
 import React from 'react';
 import Navbar from './Navbar';
 

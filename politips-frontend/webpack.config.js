@@ -10,7 +10,8 @@ config = {
     app: ["./client.js", "./app.scss"],
     vendor: [
       'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux',
-      'superagent', 'superagent-bluebird-promise', 'bluebird', 'redux-persist', 'bootstrap-sass', 'react-router-bootstrap'
+      'superagent', 'superagent-bluebird-promise', 'bluebird', 'redux-persist', 'bootstrap-sass', 'react-router-bootstrap',
+      'lodash', 'jquery'
     ]
   },
   output: {
@@ -21,14 +22,6 @@ config = {
   resolve: {
     "root": [path.resolve(__dirname)],
     "extensions": ['', '.jsx', '.js', '.css', '.scss', '.sass'],
-    "alias": {
-      "jquery": "node_modules/jquery/dist/jquery.min.js",
-      "jQuery": "node_modules/jquery/dist/jquery.min.js",
-      "bluebird": "node_modules/bluebird/js/browser/bluebird.min.js",
-      "react-bootstrap": "node_modules/react-bootstrap/dist/react-bootstrap.min.js",
-      "react$": "node_modules/react/dist/react.min.js",
-      "react-dom$": 'react-dom/dist/react-dom.min.js',
-    },
   },
   module: {
     loaders: [
