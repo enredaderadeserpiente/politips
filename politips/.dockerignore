@@ -90,3 +90,4 @@ ENV/
 
 *.sqlite
 *.sqlite3
+.git

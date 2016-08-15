@@ -1,4 +1,5 @@
 var config, localConfig, path, ref, webpack;
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 path = require('path');
 webpack = require('webpack');
@@ -21,16 +22,16 @@ try {
 config = {
   context: path.join(__dirname, "src"),
   entry: {
-    app: "./app.jsx",
+    app: ["./client.js", "./app.scss"],
     vendor: [
       'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux',
       'superagent', 'superagent-bluebird-promise', 'bluebird', 'redux-persist'
     ]
   },
   output: {
-    path: __dirname + "/dist/js/",
+    path: __dirname + "/public/static/",
     filename: "[name].js",
-    publicPath: "/js/"
+    publicPath: "/static"
   },
   resolve: {
     "root": [path.resolve(__dirname)],
@@ -55,7 +56,7 @@ config = {
         loader: 'style!css!less'
       }, {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: ExtractTextPlugin.extract("style", "css!sass")
       }, {
         test: /\.sass$/,
         loader: 'style!css!sass?indentedSyntax'
@@ -73,6 +74,7 @@ config = {
     ]
   },
   plugins: [
+    new ExtractTextPlugin("app.css"),
     new webpack.DefinePlugin({
       'ENV': env
     }),
