@@ -41,6 +41,8 @@ config = {
       "jQuery": "node_modules/jquery/dist/jquery.min.js",
       "bluebird": "node_modules/bluebird/js/browser/bluebird.min.js",
       "react-bootstrap": "node_modules/react-bootstrap/dist/react-bootstrap.min.js",
+      "react$": "node_modules/react/dist/react.min.js",
+      "react-dom$": 'react-dom/dist/react-dom.min.js',
     },
   },
   module: {
@@ -50,7 +52,7 @@ config = {
         loader: 'html-loader'
       }, {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: ExtractTextPlugin.extract("style", "css")
       }, {
         test: /\.less$/,
         loader: 'style!css!less'
@@ -59,7 +61,7 @@ config = {
         loader: ExtractTextPlugin.extract("style", "css!sass")
       }, {
         test: /\.sass$/,
-        loader: 'style!css!sass?indentedSyntax'
+        loader: ExtractTextPlugin.extract("style", "css!sass?indentedSyntax")
       }, {
         test: /\.(woff(2)?|ttf|eot|svg|png|cur|jpg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file'
@@ -84,7 +86,7 @@ config = {
       $: "jquery",
       "jQuery": "jquery"
     }),
-    //new webpack.optimize.UglifyJsPlugin({mangle: false})
+    new webpack.optimize.UglifyJsPlugin(),
   ],
   devServer: {
     historyApiFallback: true,
