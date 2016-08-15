@@ -17,7 +17,6 @@ app.get('/*', function (req, res) {
   history.push(req.originalUrl);
 
   const content = ReactDOM.renderToString(<Provider store={store}><Router history={history} routes={routes}></Router></Provider>);
-  console.log(content);
   res.render('../src/index.jade', {content: content});
 });
 

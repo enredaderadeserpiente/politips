@@ -25,7 +25,7 @@ config = {
     app: ["./client.js", "./app.scss"],
     vendor: [
       'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux',
-      'superagent', 'superagent-bluebird-promise', 'bluebird', 'redux-persist'
+      'superagent', 'superagent-bluebird-promise', 'bluebird', 'redux-persist', 'bootstrap-sass', 'react-router-bootstrap'
     ]
   },
   output: {
