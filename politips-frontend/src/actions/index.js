@@ -28,7 +28,7 @@ export function login(username, password) {
   return function(dispatch, getState) {
     dispatch(loginBegin());
 
-    return request.post(ENV.POLITIPS_API_URL + '/api-token-auth/', {
+    return request.post(POLITIPS_API_URL + '/api-token-auth/', {
       "username": username,
       "password": password
     }).then(function(response) {
@@ -65,7 +65,7 @@ export function fetchLegislatorsSuccess(legislators) {
 export function fetchLegislators() {
   return function(dispatch, getState) {
     dispatch(fetchLegislatorsBegin());
-    return request.get(ENV.POLITIPS_API_URL + '/api/v1/legislators/')
+    return request.get(POLITIPS_API_URL + '/api/v1/legislators/')
     .then(function(response) {
       let legislators = response.body;
       dispatch(fetchLegislatorsSuccess(legislators));

@@ -4,21 +4,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 path = require('path');
 webpack = require('webpack');
 
-var env = {
-  'POLITIPS_API_URL': JSON.stringify(process.env.POLITIPS_API_URL)
-}
-
-try {
-  var localConfig = require('./.env.js');
-  for (var key in localConfig) {
-    if (env[key] == undefined) {
-      env[key] = JSON.stringify(localConfig[key]);
-    }
-  }
-} catch (e) {
-  console.log(e);
-}
-
 config = {
   context: path.join(__dirname, "src"),
   entry: {
@@ -78,7 +63,8 @@ config = {
   plugins: [
     new ExtractTextPlugin("app.css"),
     new webpack.DefinePlugin({
-      'ENV': env
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'POLITIPS_API_URL': JSON.stringify(process.env.POLITIPS_API_URL || 'http://api.poli.tips')
     }),
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
     new webpack.optimize.DedupePlugin(),
