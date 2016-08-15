@@ -14,16 +14,27 @@ import webpackConfig from '../webpack.config.js';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import Dashboard from 'webpack-dashboard';
+import DashboardPlugin from 'webpack-dashboard/plugin';
+
 const app = express();
 
 var compiler = webpack(webpackConfig);
+var dashboard = new Dashboard();
+
+compiler.apply(new DashboardPlugin(dashboard.setData));
+
 app.use(webpackDevMiddleware(compiler, {
+  quiet: true,
   publicPath: webpackConfig.output.publicPath,
   stats: {
     colors: true
   },
 }));
-app.use(webpackHotMiddleware(compiler));
+
+app.use(webpackHotMiddleware(compiler, {
+  log: function() { },
+}));
 
 app.use(express.static('public'));
 
