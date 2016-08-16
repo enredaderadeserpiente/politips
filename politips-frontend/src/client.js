@@ -7,9 +7,11 @@ import routes from './routes';
 import { render } from 'react-dom'
 import { browserHistory } from 'react-router';
 
+const history = syncHistoryWithStore(browserHistory, store)
+
 render(
 <Provider store={store}>
-  <Router history={browserHistory}>
+  <Router history={history}>
     {routes}
   </Router>
 </Provider>

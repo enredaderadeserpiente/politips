@@ -1,5 +1,7 @@
 var config, localConfig, path, ref, webpack;
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var Dashboard = require('webpack-dashboard');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+var dashboard = new Dashboard();
 
 path = require('path');
 webpack = require('webpack');
@@ -30,16 +32,16 @@ config = {
         loader: 'html-loader'
       }, {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css")
+        loader: "style!css"
       }, {
         test: /\.less$/,
         loader: 'style!css!less'
       }, {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        loader: "style!css!sass"
       }, {
         test: /\.sass$/,
-        loader: ExtractTextPlugin.extract("style", "css!sass?indentedSyntax")
+        loader: "style!css!sass?indentedSyntax"
       }, {
         test: /\.(woff(2)?|ttf|eot|svg|png|cur|jpg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file'
@@ -55,7 +57,6 @@ config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("app.css"),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       'POLITIPS_API_URL': JSON.stringify(process.env.POLITIPS_API_URL || 'http://api.poli.tips')
@@ -66,6 +67,7 @@ config = {
       $: "jquery",
       "jQuery": "jquery"
     }),
+    new DashboardPlugin(dashboard.setData),
     // new webpack.optimize.UglifyJsPlugin(),
   ],
   devServer: {
