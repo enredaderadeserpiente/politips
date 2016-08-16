@@ -72,7 +72,7 @@ config = {
   ],
   devServer: {
     historyApiFallback: true,
-    contentBase: __dirname + "/dist/",
+    contentBase: __dirname + "/public/",
     devtool: "source-map"
   }
 };
