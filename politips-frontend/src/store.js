@@ -1,13 +1,15 @@
 import thunk from 'redux-thunk';
-import authReducer from './reducers/authReducer';
-import legislatorsReducer from './reducers/legislatorsReducer';
-import { persistStore, autoRehydrate } from 'redux-persist'
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import auth from './reducers/auth';
+import legislators from './reducers/legislators';
+import { persistStore, autoRehydrate } from 'redux-persist';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 const store = createStore(
   combineReducers({
-    auth: authReducer,
-    legislators: legislatorsReducer,
+    auth: auth,
+    legislators: legislators,
+    routing: routerReducer,
   }),
   compose(
     applyMiddleware(thunk),

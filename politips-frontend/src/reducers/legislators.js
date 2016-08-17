@@ -1,6 +1,6 @@
 import { FETCH_LEGISLATORS_BEGIN, FETCH_LEGISLATORS_SUCCESS } from '../actions';
 
-let legislatorsReducer = function(state={'legislators': null}, action) {
+export default function legislators(state={'legislators': null}, action) {
   switch (action.type) {
     case FETCH_LEGISLATORS_BEGIN:
       return Object.assign({}, state, {
@@ -14,5 +14,3 @@ let legislatorsReducer = function(state={'legislators': null}, action) {
   }
   return state;
 }
-
-export default legislatorsReducer;

@@ -1,6 +1,6 @@
 import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT } from '../actions';
 
-let authReducer = function(state={'user': null}, action) {
+export default function auth(state={'user': null}, action) {
   switch (action.type) {
     case LOGIN_BEGIN:
       return Object.assign({}, state, {
@@ -25,5 +25,3 @@ let authReducer = function(state={'user': null}, action) {
   }
   return state;
 }
-
-export default authReducer;

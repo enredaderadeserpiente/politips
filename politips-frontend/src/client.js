@@ -6,6 +6,7 @@ import routes from './routes';
 
 import { render } from 'react-dom'
 import { browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
 
 const history = syncHistoryWithStore(browserHistory, store)
 

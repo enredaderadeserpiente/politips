@@ -71,6 +71,7 @@ config = {
     // new webpack.optimize.UglifyJsPlugin(),
   ],
   devServer: {
+    quiet: true,
     historyApiFallback: true,
     contentBase: __dirname + "/public/",
     devtool: "source-map"
