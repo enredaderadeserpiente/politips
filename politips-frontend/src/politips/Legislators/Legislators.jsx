@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 import { addLegislator, fetchLegislators, deleteLegislator } from './actions'
 import AddLegislator from './AddLegislator';
 import ListLegislators from './ListLegislators';
@@ -30,17 +31,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-      fetchLegislators: () => {
-        return dispatch(fetchLegislators())
-      },
-      addLegislator: (legislatorData) => {
-        return dispatch(addLegislator(legislatorData))
-      },
-      deleteLegislator: (legislatorData) => {
-        return dispatch(deleteLegislator(legislatorData));
-      }
-  }
+  return bindActionCreators({
+    addLegislator,
+    fetchLegislators,
+    deleteLegislator,
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Legislators);
