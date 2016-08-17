@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { addLegislator, fetchLegislators } from './actions'
 import AddLegislator from './AddLegislator';
+import ListLegislators from './ListLegislators';
 
 const Legislators = React.createClass({
   componentDidMount() {
@@ -15,14 +16,7 @@ const Legislators = React.createClass({
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            Legislators
-            {this.props.legislators ?
-              <ul>
-                {this.props.legislators.map(function(legislator) {
-                  return <li key={legislator.url}>{legislator.name}</li>
-                })}
-              </ul>
-            : null }
+            <ListLegislators {...this.props} />
           </div>
           <div className="col-md-4">
             <AddLegislator {...this.props} />
