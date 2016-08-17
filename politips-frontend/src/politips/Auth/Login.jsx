@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
-import { login } from '../actions';
+import { login } from './actions';
 
 import classNames from 'classnames';
 

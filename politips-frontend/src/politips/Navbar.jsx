@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import { Navbar as RBNavbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-import { logout } from '../actions';
+import { logout } from './Auth/actions';
 
 const Navbar = React.createClass({
   render() {

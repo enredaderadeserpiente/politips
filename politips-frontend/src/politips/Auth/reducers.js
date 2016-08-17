@@ -1,4 +1,4 @@
-import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT } from '../actions';
+import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT } from './actions';
 
 export default function auth(state={'user': null}, action) {
   switch (action.type) {

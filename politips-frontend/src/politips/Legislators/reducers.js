@@ -1,4 +1,4 @@
-import { FETCH_LEGISLATORS_BEGIN, FETCH_LEGISLATORS_SUCCESS } from '../actions';
+import { FETCH_LEGISLATORS_BEGIN, FETCH_LEGISLATORS_SUCCESS } from './actions';
 
 export default function legislators(state={'legislators': null}, action) {
   switch (action.type) {

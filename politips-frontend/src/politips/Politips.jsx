@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 
-const App = React.createClass({
+const Politips = React.createClass({
   render() {
     return (
       <div>
@@ -18,4 +18,4 @@ const App = React.createClass({
   }
 });
 
-export default App;
+export default Politips;

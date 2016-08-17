@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { addLegislator, fetchLegislators } from '../actions'
+import { addLegislator, fetchLegislators } from './actions'
 import AddLegislator from './AddLegislator';
 
 const Legislators = React.createClass({
