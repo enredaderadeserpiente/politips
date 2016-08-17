@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { addLegislator, fetchLegislators } from './actions'
+import { addLegislator, fetchLegislators, deleteLegislator } from './actions'
 import AddLegislator from './AddLegislator';
 import ListLegislators from './ListLegislators';
 
 const Legislators = React.createClass({
   componentDidMount() {
-    if (!this.props.legislators) {
-      this.props.fetchLegislators();
-    }
+    this.props.fetchLegislators();
   },
  
   render() {
@@ -38,6 +36,9 @@ const mapDispatchToProps = (dispatch) => {
       },
       addLegislator: (legislatorData) => {
         return dispatch(addLegislator(legislatorData))
+      },
+      deleteLegislator: (legislatorData) => {
+        return dispatch(deleteLegislator(legislatorData));
       }
   }
 }

@@ -53,3 +53,28 @@ export function addLegislator(legislatorData) {
     })
   }
 }
+
+export const DELETE_LEGISLATOR_BEGIN = 'DELETE_LEGISLATOR_BEGIN';
+export function deleteLegislatorBegin() {
+  return {
+    "type": DELETE_LEGISLATOR_BEGIN
+  }
+}
+
+export const DELETE_LEGISLATOR_SUCCESS = 'DELETE_LEGISLATOR_SUCCESS';
+export function deleteLegislatorSuccess() {
+  return {
+    "type": DELETE_LEGISLATOR_SUCCESS
+  }
+}
+
+export function deleteLegislator(legislatorData) {
+  return function(dispatch, getState) {
+    dispatch(deleteLegislatorBegin());
+    return request.delete(legislatorData.url)
+    .then(function(response) {
+      dispatch(fetchLegislators());
+      dispatch(deleteLegislatorSuccess());
+    })
+  }
+}
