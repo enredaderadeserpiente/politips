@@ -24,24 +24,21 @@ const AddLegislator = React.createClass({
 
   submit(e) {
     e.preventDefault();
-    this.props.addLegislator(this.state.legislator);
+    this.props.addLegislator(this.state.legislator)
+    .then((legislator) => {
+        console.log('legislator was added', legislator);
+    })
   },
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4 col-md-offset-4">
-            <form onSubmit={this.submit}>
-                <div className='form-group'>
-                  <label>Legislator Name</label>
-                  <input type="text" className="form-control" value={this.state.legislator.name} onChange={this.setLegislatorName}/>
-                </div>
-                <button type='submit' className='btn btn-primary'>Add</button>
-            </form>
+      <form onSubmit={this.submit}>
+          <div className='form-group'>
+            <label>Legislator Name</label>
+            <input type="text" className="form-control" value={this.state.legislator.name} onChange={this.setLegislatorName}/>
           </div>
-        </div>
-      </div>
+          <button type='submit' className='btn btn-primary'>Add</button>
+      </form>
     )
   }
 })

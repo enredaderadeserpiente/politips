@@ -14,7 +14,7 @@ const Legislators = React.createClass({
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-4 col-md-offset-4">
+          <div className="col-md-4">
             Legislators
             {this.props.legislators ?
               <ul>
@@ -23,6 +23,8 @@ const Legislators = React.createClass({
                 })}
               </ul>
             : null }
+          </div>
+          <div className="col-md-4">
             <AddLegislator {...this.props} />
           </div>
         </div>

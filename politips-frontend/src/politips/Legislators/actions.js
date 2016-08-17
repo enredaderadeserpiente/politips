@@ -34,9 +34,10 @@ export function addLegislatorBegin() {
 }
 
 export const ADD_LEGISLATOR_SUCCESS = 'ADD_LEGISLATOR_SUCCESS';
-export function addLegislatorSuccess() {
+export function addLegislatorSuccess(legislator) {
   return {
-    "type": ADD_LEGISLATOR_SUCCESS
+    "type": ADD_LEGISLATOR_SUCCESS,
+    "legislator": legislator
   }
 }
 
@@ -45,7 +46,10 @@ export function addLegislator(legislatorData) {
     dispatch(addLegislatorBegin());
     return request.post(POLITIPS_API_URL + '/api/v1/legislators/', legislatorData)
     .then(function(response) {
-      dispatch(addLegislatorSuccess());
+      let legislator = response.body;
+      dispatch(fetchLegislators());
+      dispatch(addLegislatorSuccess(legislator));
+      return legislator;
     })
   }
 }
