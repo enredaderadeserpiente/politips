@@ -13,7 +13,8 @@ const store = createStore(
   }),
   compose(
     applyMiddleware(thunk),
-    autoRehydrate()
+    autoRehydrate(),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
 
