@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchLegislators } from '../actions'
+import { addLegislator, fetchLegislators } from '../actions'
+import AddLegislator from './AddLegislator';
 
 const Legislators = React.createClass({
   componentDidMount() {
@@ -22,6 +23,7 @@ const Legislators = React.createClass({
                 })}
               </ul>
             : null }
+            <AddLegislator {...this.props} />
           </div>
         </div>
       </div>
@@ -36,7 +38,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       fetchLegislators: () => {
-          return dispatch(fetchLegislators())
+        return dispatch(fetchLegislators())
+      },
+      addLegislator: (legislatorData) => {
+        return dispatch(addLegislator(legislatorData))
       }
   }
 }

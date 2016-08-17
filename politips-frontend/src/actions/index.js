@@ -72,3 +72,27 @@ export function fetchLegislators() {
     })
   }
 }
+
+export const ADD_LEGISLATOR_BEGIN = 'ADD_LEGISLATOR_BEGIN';
+export function addLegislatorBegin() {
+  return {
+    "type": ADD_LEGISLATOR_BEGIN
+  }
+}
+
+export const ADD_LEGISLATOR_SUCCESS = 'ADD_LEGISLATOR_SUCCESS';
+export function addLegislatorSuccess() {
+  return {
+    "type": ADD_LEGISLATOR_SUCCESS
+  }
+}
+
+export function addLegislator(legislatorData) {
+  return function(dispatch, getState) {
+    dispatch(addLegislatorBegin());
+    return request.post(POLITIPS_API_URL + '/api/v1/legislators/', legislatorData)
+    .then(function(response) {
+      dispatch(addLegislatorSuccess());
+    })
+  }
+}
