@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ListLegislators = React.createClass({
     render() {
@@ -13,7 +14,10 @@ const ListLegislators = React.createClass({
                                 <button className='btn btn-sm btn-danger' onClick={this.props.deleteLegislator.bind(this, legislator)}>
                                     <i className='fa fa-times'></i>
                                 </button>
-                                &nbsp;{legislator.name}
+                                <Link to={`/legislators/${legislator.id}/`}>
+                                    {legislator.name}
+                                </Link>
+                                &nbsp;
                             </li>
                         )
                     })}
