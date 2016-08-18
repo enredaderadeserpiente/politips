@@ -1,5 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic.base import RedirectView
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
@@ -13,6 +15,7 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', RedirectView.as_view(url=reverse_lazy('admin:index'))),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/v1/', include(router.urls)),
     url(r'^api-token-auth/', obtain_jwt_token),
