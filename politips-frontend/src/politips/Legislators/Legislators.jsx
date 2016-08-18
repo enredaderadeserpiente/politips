@@ -20,11 +20,6 @@ const Legislators = React.createClass({
           <div className="col-md-4">
             <AddLegislator {...this.props} />
           </div>
-          <div className="col-md-4">
-            {React.cloneElement(this.props.children, {
-              legislators: this.props.legislators
-            })}
-          </div>
         </div>
       </div>
     )
