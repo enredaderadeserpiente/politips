@@ -1,5 +1,9 @@
 api:
     build: politips/
 
+db:
+    image: postgres
+
 frontend:
     build: politips-frontend/
+
