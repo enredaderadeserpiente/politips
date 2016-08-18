@@ -44,6 +44,9 @@ class District(models.Model):
 class Agenda(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return "Agenda - {}".format(self.name)
+
 class AgendaItem(models.Model):
     item_number = models.CharField(max_length=255, null=True)
     name = models.CharField(max_length=255)

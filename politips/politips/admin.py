@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from politips.models import Legislator, Legislature, Legislatorship, State, District, Agenda, AgendaItem, Vote
 
 
@@ -38,7 +39,9 @@ class AgendaAdmin(admin.ModelAdmin):
 
 @admin.register(AgendaItem)
 class AgendaItemAdmin(admin.ModelAdmin):
-    pass
+    inlines = [
+        VoteInline,
+    ]
 
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
