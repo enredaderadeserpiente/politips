@@ -5,12 +5,13 @@ from django.views.generic.base import RedirectView
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
-from politips.views import LegislatorViewSet, UserViewSet
+from politips.views import LegislatorViewSet, UserViewSet, AgendaViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'legislators', LegislatorViewSet)
 router.register(r'users', UserViewSet)
+router.register(r'agendas', AgendaViewSet)
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),

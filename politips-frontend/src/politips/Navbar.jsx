@@ -24,6 +24,9 @@ const Navbar = React.createClass({
             <LinkContainer to='/legislators/'>
               <NavItem>Legislators</NavItem>
             </LinkContainer>
+            <LinkContainer to='/votes/'>
+              <NavItem>Votes</NavItem>
+            </LinkContainer>
           </Nav>
           <Nav pullRight>
             <NavDropdown id="accountDropdown" title={this.props.user ? this.props.user.username : 'My Account'}>

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 
 from politips.models import Legislator
-from politips.serializers import LegislatorSerializer, UserSerializer
+from politips.serializers import LegislatorSerializer, UserSerializer, AgendaSerializer
 from rest_framework import viewsets
 
 
@@ -12,3 +12,7 @@ class LegislatorViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class AgendaViewSet(viewsets.ModelViewSet):
+    queryset = Agenda.objects.all()
+    serializer_class = AgendaSerializer
