@@ -1,9 +1,37 @@
-api:
-    build: politips/
+version: '2'
 
-db:
+services:
+  proxy:
+    env_file: .env
+    build: politips_proxy/
+    links:
+      - api:api
+      - frontend:frontend
+    volumes:
+      - ./politips_proxy/:/home/politips/politips/politips_proxy/
+    ports:
+      - 80:8000
+
+  db:
+    env_file: .env
     image: postgres
+    volumes:
+      - data:/var/lib/postgresql/data/
 
-frontend:
+  api:
+    env_file: .env
+    build: politips_api/
+    volumes:
+      - ./politips_api/:/home/politips/politips/politips_api/
+    links:
+      - db
+
+  frontend:
+    env_file: .env
     build: politips-frontend/
+    volumes:
+      - ./politips-frontend/:/home/politips/politips/politips-frontend/
+      - /home/politips/politips/politips-frontend/node_modules
 
+volumes:
+  data: {}

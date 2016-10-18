@@ -5,7 +5,7 @@ from django.views.generic.base import RedirectView
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
-from politips.views import LegislatorViewSet, UserViewSet, AgendaViewSet
+from politips_api.views import LegislatorViewSet, UserViewSet, AgendaViewSet
 
 
 router = routers.DefaultRouter()

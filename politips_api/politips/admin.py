@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from politips.models import Legislator, Legislature, Legislatorship, State, District, Agenda, AgendaItem, Vote
+from politips_api.models import Legislator, Legislature, Legislatorship, State, District, Agenda, AgendaItem, Vote
 
 
 class VoteInline(admin.TabularInline):

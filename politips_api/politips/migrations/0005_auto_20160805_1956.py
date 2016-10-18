@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('politips', '0004_auto_20160805_1950'),
+        ('politips_api', '0004_auto_20160805_1950'),
     ]
 
     operations = [
@@ -26,16 +26,16 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='agendaitem',
             name='agenda',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='agenda_items', to='politips.Agenda'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='agenda_items', to='politips_api.Agenda'),
         ),
         migrations.AlterField(
             model_name='vote',
             name='agenda_item',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='votes', to='politips.AgendaItem'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='votes', to='politips_api.AgendaItem'),
         ),
         migrations.AlterField(
             model_name='vote',
             name='legislatorship',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='votes', to='politips.Legislatorship'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='votes', to='politips_api.Legislatorship'),
         ),
     ]

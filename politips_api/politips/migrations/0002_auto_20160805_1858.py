@@ -9,18 +9,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('politips', '0001_initial'),
+        ('politips_api', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='legislatorship',
             name='legislator',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='legislatorships', to='politips.Legislator'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='legislatorships', to='politips_api.Legislator'),
         ),
         migrations.AlterField(
             model_name='legislatorship',
             name='legislature',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='legislatorships', to='politips.Legislature'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='legislatorships', to='politips_api.Legislature'),
         ),
     ]

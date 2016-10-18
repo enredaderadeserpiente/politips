@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 
-from politips.models import Legislature, Legislator, Legislatorship, State, District, Agenda, AgendaItem, Vote
+from politips_api.models import Legislature, Legislator, Legislatorship, State, District, Agenda, AgendaItem, Vote
 import datetime
 
 class Command(BaseCommand):

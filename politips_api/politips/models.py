@@ -13,9 +13,9 @@ class Legislature(models.Model):
         return self.name
 
 class Legislatorship(models.Model):
-    legislator  = models.ForeignKey('politips.Legislator', related_name='legislatorships')
-    legislature = models.ForeignKey('politips.Legislature', related_name='legislatorships')
-    district    = models.ForeignKey('politips.District', null=True)
+    legislator  = models.ForeignKey('politips_api.Legislator', related_name='legislatorships')
+    legislature = models.ForeignKey('politips_api.Legislature', related_name='legislatorships')
+    district    = models.ForeignKey('politips_api.District', null=True)
     begin       = models.DateTimeField(null=True)
     end         = models.DateTimeField(null=True)
 
@@ -35,7 +35,7 @@ class State(models.Model):
         return self.name
 
 class District(models.Model):
-    state = models.ForeignKey('politips.State', related_name='districts')
+    state = models.ForeignKey('politips_api.State', related_name='districts')
     name = models.CharField(max_length=255)
 
     def __str__(self):
@@ -50,7 +50,7 @@ class Agenda(models.Model):
 class AgendaItem(models.Model):
     item_number = models.CharField(max_length=255, null=True)
     name = models.CharField(max_length=255)
-    agenda = models.ForeignKey('politips.Agenda', related_name='agenda_items')
+    agenda = models.ForeignKey('politips_api.Agenda', related_name='agenda_items')
     description = models.TextField(max_length=255)
 
     def __str__(self):
@@ -63,8 +63,8 @@ class Vote(models.Model):
         ["Abstain", "Abstain"],
         ["Off dais", "Off dais"],
     ])
-    agenda_item = models.ForeignKey('politips.AgendaItem', related_name='votes')
-    legislatorship = models.ForeignKey('politips.Legislatorship', related_name='votes')
+    agenda_item = models.ForeignKey('politips_api.AgendaItem', related_name='votes')
+    legislatorship = models.ForeignKey('politips_api.Legislatorship', related_name='votes')
 
     def __str__(self):
         return "{} - {} - {} - {}".format(

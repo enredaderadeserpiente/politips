@@ -4,7 +4,7 @@ import environ
 
 root = environ.Path(__file__) - 2
 env = environ.Env()
-environ.Env.read_env(root('politips/.env'))
+environ.Env.read_env(root('politips_api/.env'))
 
 SECRET_KEY = env('SECRET_KEY', default=uuid.uuid4())
 
@@ -22,13 +22,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
-    'politips',
+    'politips_api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'politips.middleware.CorsMiddleware',
+    'politips_api.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -37,7 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'politips.urls'
+ROOT_URLCONF = 'politips_api.urls'
 
 TEMPLATES = [
     {
@@ -55,7 +55,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'politips.wsgi.application'
+WSGI_APPLICATION = 'politips_api.wsgi.application'
 
 DATABASES = {
     'default': env.db(default='sqlite:///db.sqlite')
@@ -93,7 +93,7 @@ REST_FRAMEWORK = {
 }
 
 def jwt_response_payload_handler(token, user=None, request=None):
-    from politips.serializers import UserSerializer
+    from politips_api.serializers import UserSerializer
     return {
         'token': token,
         'user': UserSerializer(user, context={'request': request}).data

@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('politips', '0005_auto_20160805_1956'),
+        ('politips_api', '0005_auto_20160805_1956'),
     ]
 
     operations = [

@@ -9,11 +9,11 @@ RUN sed -i 's/archive.ubuntu.com/us-central1.gce.archive.ubuntu.com/g' /etc/apt/
 ADD requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
-RUN useradd -m politips
+RUN useradd -m politips_api
 
 RUN rm -rf /var/cache/apt /root/.cache
 
-USER politips
-ENV HOME /home/politips/
-ADD . /home/politips/politips
-WORKDIR /home/politips/politips
+USER politips_api
+ENV HOME /home/politips_api/
+ADD . /home/politips_api/politips_api
+WORKDIR /home/politips_api/politips_api
