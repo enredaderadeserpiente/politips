@@ -1,4 +1,4 @@
-import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT } from './actions';
+import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT, REQUEST_GEOLOCATION_SUCCESS } from './actions';
 
 export default function auth(state={'user': null}, action) {
   switch (action.type) {
@@ -20,6 +20,11 @@ export default function auth(state={'user': null}, action) {
       return Object.assign({}, state, {
         "user": null,
         "token": null
+      });
+    break;
+    case REQUEST_GEOLOCATION_SUCCESS:
+      return Object.assign({}, state, {
+        "geolocation": action.geolocation,
       });
     break;
   }

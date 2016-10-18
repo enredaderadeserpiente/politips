@@ -28,7 +28,7 @@ export function login(username, password) {
   return function(dispatch, getState) {
     dispatch(loginBegin());
 
-    return request.post(POLITIPS_API_URL + '/api-token-auth/', {
+    return request.post(SHOWLISTER_API_URL + '/api-auth/login/', {
       "username": username,
       "password": password
     }).then(function(response) {

@@ -31,7 +31,7 @@ const Login = React.createClass({
     this.props.login(this.state.username, this.state.password)
     .then((err) => {
       if (!err) {
-        this.props.router.push('/home');
+        this.props.router.push('/');
       } else {
         this.setState({
           'usernameError': err.username,

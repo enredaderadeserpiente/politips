@@ -1,7 +1,4 @@
 var config, localConfig, path, ref, webpack;
-var Dashboard = require('webpack-dashboard');
-var DashboardPlugin = require('webpack-dashboard/plugin');
-var dashboard = new Dashboard();
 
 path = require('path');
 webpack = require('webpack');
@@ -19,7 +16,7 @@ config = {
   output: {
     path: __dirname + "/public/static/",
     filename: "[name].js",
-    publicPath: "/static"
+    publicPath: "/static/"
   },
   resolve: {
     "root": [path.resolve(__dirname)],
@@ -58,8 +55,8 @@ config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      'POLITIPS_API_URL': JSON.stringify(process.env.POLITIPS_API_URL || 'http://api.poli.tips')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+      'SHOWLISTER_API_URL': JSON.stringify(process.env.SHOWLISTER_API_URL || '')
     }),
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
     new webpack.optimize.DedupePlugin(),
@@ -67,10 +64,12 @@ config = {
       $: "jquery",
       "jQuery": "jquery"
     }),
-    new DashboardPlugin(dashboard.setData),
     // new webpack.optimize.UglifyJsPlugin(),
   ],
+  historyApiFallback: true,
+  contentBase: __dirname + "/public/",
   devServer: {
+    watch: true,
     quiet: true,
     historyApiFallback: true,
     contentBase: __dirname + "/public/",
