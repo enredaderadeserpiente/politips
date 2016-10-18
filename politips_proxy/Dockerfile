@@ -5,10 +5,10 @@ RUN sed -i 's/archive.ubuntu.com/us-central1.gce.archive.ubuntu.com/g' /etc/apt/
     apt-get install --yes --no-install-recommends\
         ca-certificates nginx
 
-RUN useradd -m showlister
+RUN useradd -m politips
 
-ADD . /home/showlister/showlister/showlister_proxy/
+ADD . /home/politips/politips/politips_proxy/
 
-USER showlister
+USER politips
 
-CMD nginx -c /home/showlister/showlister/showlister_proxy/nginx.conf
+CMD nginx -c /home/politips/politips/politips_proxy/nginx.conf
