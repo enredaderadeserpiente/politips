@@ -6,11 +6,10 @@ services:
     build: politips_proxy/
     links:
       - api:api
-      - frontend:frontend
     volumes:
       - ./politips_proxy/:/home/politips/politips/politips_proxy/
     ports:
-      - 80:8000
+      - 8000:8000
 
   db:
     env_file: .env
