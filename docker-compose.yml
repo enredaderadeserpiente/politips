@@ -21,10 +21,11 @@ services:
   api:
     env_file: .env
     build: politips_api/
+    command: uwsgi --ini uwsgi.ini
     volumes:
       - ./politips_api/:/home/politips/politips/politips_api/
     links:
-      - db
+      - db:db
 
   frontend:
     env_file: .env

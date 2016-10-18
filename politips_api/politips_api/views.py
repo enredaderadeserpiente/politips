@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from politips_api.models import Legislator
+from politips_api.models import Legislator, Agenda
 from politips_api.serializers import LegislatorSerializer, UserSerializer, AgendaSerializer
 from rest_framework import viewsets
 
