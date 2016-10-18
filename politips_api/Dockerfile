@@ -13,7 +13,7 @@ RUN useradd -m politips
 
 RUN rm -rf /var/cache/apt /root/.cache
 
-USER politips_api
+USER politips
 ENV HOME /home/politips/
 ADD . /home/politips/politips_api
 WORKDIR /home/politips/politips_api
