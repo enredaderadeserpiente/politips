@@ -6,7 +6,7 @@ RUN sed -i 's/archive.ubuntu.com/us-central1.gce.archive.ubuntu.com/g' /etc/apt/
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - &&\
     apt-get install -y nodejs
- 
+
 RUN useradd -m politips
 
 ADD package.json /home/politips/politips-frontend/package.json
@@ -17,7 +17,7 @@ RUN chown -R politips. /home/politips
 USER politips
 ENV HOME /home/politips/politips-frontend
 RUN ./node_modules/.bin/webpack
-# RUN chown 
+# RUN chown
 # RUN cd npm install
 # ADD . /home/politips/politips-frontend
 
